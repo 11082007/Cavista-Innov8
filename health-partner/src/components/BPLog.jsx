@@ -26,7 +26,7 @@
 //       return { text: "Crisis", color: "text-red-600 font-bold" };
 //     if (sys > 140 || dia > 90)
 //       return { text: "High", color: "text-orange-600" };
-//     if (sys < 90 || dia < 60) return { text: "Low", color: "text-blue-600" };
+//     if (sys < 90 || dia < 60) return { text: "Low", color: "text-red-600" };
 //     return { text: "Normal", color: "text-green-600" };
 //   };
 
@@ -45,7 +45,7 @@
 //               type="number"
 //               value={systolic}
 //               onChange={(e) => setSystolic(e.target.value)}
-//               className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
+//               className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-red-500"
 //               placeholder="120"
 //               required
 //             />
@@ -58,7 +58,7 @@
 //               type="number"
 //               value={diastolic}
 //               onChange={(e) => setDiastolic(e.target.value)}
-//               className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
+//               className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-red-500"
 //               placeholder="80"
 //               required
 //             />
@@ -76,7 +76,7 @@
 
 //         <button
 //           type="submit"
-//           className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors"
+//           className="w-full bg-red-600 text-white py-3 rounded-lg hover:bg-red-700 transition-colors"
 //         >
 //           Save Reading
 //         </button>
@@ -113,7 +113,7 @@ const BPLog = ({ onAdd }) => {
       return { text: "Crisis", color: "text-red-600 font-bold" };
     if (sys > 140 || dia > 90)
       return { text: "High", color: "text-orange-600" };
-    if (sys < 90 || dia < 60) return { text: "Low", color: "text-blue-600" };
+    if (sys < 90 || dia < 60) return { text: "Low", color: "text-red-600" };
     return { text: "Normal", color: "text-green-600" };
   };
 
@@ -132,7 +132,7 @@ const BPLog = ({ onAdd }) => {
               type="number"
               value={systolic}
               onChange={(e) => setSystolic(e.target.value)}
-              className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-red-500"
               placeholder="120"
               required
             />
@@ -145,7 +145,7 @@ const BPLog = ({ onAdd }) => {
               type="number"
               value={diastolic}
               onChange={(e) => setDiastolic(e.target.value)}
-              className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-red-500"
               placeholder="80"
               required
             />
@@ -162,7 +162,7 @@ const BPLog = ({ onAdd }) => {
 
         <button
           type="submit"
-          className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors"
+          className="w-full bg-red-600 text-white py-3 rounded-lg hover:bg-red-700 transition-colors"
         >
           Save Reading
         </button>

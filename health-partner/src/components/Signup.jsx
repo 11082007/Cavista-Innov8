@@ -19,8 +19,8 @@ const Signup = ({ setUser }) => {
 
   return (
     <div className="min-h-screen flex items-center justify-center p-4">
-      <div className="max-w-md w-full bg-white rounded-2xl shadow-xl p-8 border-t-8 border-blue-600">
-        <h1 className="text-3xl font-extrabold text-blue-900 text-center mb-2">VYTAL</h1>
+      <div className="max-w-md w-full bg-white rounded-2xl shadow-xl p-8 border-t-8 border-red-600">
+        <h1 className="text-3xl font-extrabold text-red-900 text-center mb-2">VYTAL</h1>
         <p className="text-gray-500 text-center mb-8 font-medium">From Data to Prevention.</p>
 
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -32,7 +32,7 @@ const Signup = ({ setUser }) => {
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all"
+              className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-red-500 outline-none transition-all"
               placeholder="John Doe"
               required
             />
@@ -46,7 +46,7 @@ const Signup = ({ setUser }) => {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all"
+              className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-red-500 outline-none transition-all"
               placeholder="you@example.com"
               required
             />
@@ -59,7 +59,7 @@ const Signup = ({ setUser }) => {
             <select
               value={condition}
               onChange={(e) => setCondition(e.target.value)}
-              className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all text-gray-700 font-medium"
+              className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-red-500 outline-none transition-all text-gray-700 font-medium"
             >
               <option value="general">General Prevention</option>
               <option value="hypertension">Hypertension Watch</option>
@@ -78,7 +78,7 @@ const Signup = ({ setUser }) => {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all"
+              className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-red-500 outline-none transition-all"
               placeholder="••••••••"
               required
             />
@@ -86,7 +86,7 @@ const Signup = ({ setUser }) => {
 
           <button
             type="submit"
-            className="w-full mt-2 py-4 bg-blue-600 text-white rounded-xl hover:bg-blue-700 font-extrabold shadow-md transition-all active:scale-95"
+            className="w-full mt-2 py-4 bg-red-600 text-white rounded-xl hover:bg-red-700 font-extrabold shadow-md transition-all active:scale-95"
           >
             Create My AI Health Profile
           </button>
@@ -96,7 +96,7 @@ const Signup = ({ setUser }) => {
           Already have an account?{" "}
           <button
             onClick={() => navigate("/login")}
-            className="text-blue-600 hover:text-blue-800 font-bold"
+            className="text-red-600 hover:text-red-800 font-bold"
           >
             Sign In
           </button>

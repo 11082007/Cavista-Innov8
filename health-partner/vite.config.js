@@ -12,7 +12,7 @@ export default defineConfig({
         name: "VYTAL Health",
         short_name: "VYTAL",
         description: "Your AI Health Partner",
-        theme_color: "#2563eb",
+        theme_color: "#dc2626",
         background_color: "#ffffff",
         display: "standalone",
         start_url: "/",

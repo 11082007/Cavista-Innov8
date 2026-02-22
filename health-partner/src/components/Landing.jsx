@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import USSDMockup from './USSDMockup';
 
 const Landing = () => {
   const navigate = useNavigate();
@@ -37,36 +38,18 @@ const Landing = () => {
           </div>
         </div>
 
-        {/* Hero Visuals (Abstract UI representation) */}
-        <div className="relative animate-pulse-slow">
-           <div className="absolute inset-0 bg-gradient-to-tr from-purple-300 to-teal-100 rounded-full blur-3xl opacity-30"></div>
-           <div className="relative bg-white/80 backdrop-blur-xl border border-white p-6 rounded-3xl shadow-2xl">
-              <div className="space-y-4">
-                 {/* Visual Mockup Items */}
-                 <div className="flex items-center gap-4 bg-purple-50 p-4 rounded-2xl">
-                    <div className="w-12 h-12 bg-purple-200 rounded-full flex items-center justify-center text-purple-700"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
-                    <div>
-                      <p className="font-bold text-purple-900">Active Monitoring</p>
-                      <p className="text-sm text-purple-600">Track complications</p>
-                    </div>
-                 </div>
-                 <div className="flex items-center gap-4 bg-purple-50 p-4 rounded-2xl transform translate-x-4">
-                    <div className="w-12 h-12 bg-purple-200 rounded-full flex items-center justify-center text-purple-700"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
-                    <div>
-                      <p className="font-bold text-purple-900">Genetic Risks</p>
-                      <p className="text-sm text-purple-600">Family tree risk analysis</p>
-                    </div>
-                 </div>
-                 <div className="flex items-center gap-4 bg-orange-50 p-4 rounded-2xl transform translate-x-8">
-                    <div className="w-12 h-12 bg-orange-200 rounded-full flex items-center justify-center text-orange-700"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg></div>
-                    <div>
-                      <p className="font-bold text-orange-900">Pre-Disease Education</p>
-                      <p className="text-sm text-orange-600">Targeted patient education</p>
-                    </div>
-                 </div>
-              </div>
-           </div>
-        </div>
+         {/* Hero Visuals (Abstract UI representation + USSD) */}
+         <div className="relative flex justify-center items-center">
+            <div className="absolute inset-0 bg-gradient-to-tr from-purple-300 to-teal-100 rounded-full blur-3xl opacity-30 transform scale-150"></div>
+            
+            {/* The USSD Mockup Component */}
+            <div className="relative z-20 transform hover:scale-105 transition-transform duration-500">
+               <div className="absolute -top-6 -right-6 bg-rose-500 text-white text-xs font-black px-4 py-2 rounded-full shadow-xl transform rotate-12 animate-pulse whitespace-nowrap">
+                 For the 40% without Smartphones!
+               </div>
+               <USSDMockup />
+            </div>
+         </div>
       </main>
 
       {/* The 3 Layers Section */}

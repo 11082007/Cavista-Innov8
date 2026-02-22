@@ -10,7 +10,7 @@ const SEED_HOSPITALS = [
     phone: "+234 800 LUTH EMER",
     ambulance: "Available (2 Dispatching)",
     type: "Tertiary",
-    insurance: ["NHIS Accepted", "Red Cross Supported"],
+    insurance: ["🌟 Premium HMO Partner", "NHIS Accepted", "Red Cross Supported"],
     resources: [
       { name: "ICU Beds", available: true, count: 5 },
       { name: "O- Blood", available: true, count: 12 },
@@ -26,7 +26,7 @@ const SEED_HOSPITALS = [
     phone: "+234 800 GBAG EMER",
     ambulance: "Unavailable",
     type: "Secondary",
-    insurance: ["LSHS Accredited"],
+    insurance: ["🌟 Verified HMO Partner", "LSHS Accredited"],
     resources: [
       { name: "ICU Beds", available: false, count: 0 },
       { name: "O- Blood", available: true, count: 4 },
@@ -42,7 +42,7 @@ const SEED_HOSPITALS = [
     phone: "+234 800 REDD EMER",
     ambulance: "Available (4 Dispatching)",
     type: "Private",
-    insurance: ["Private HMO", "Pay-Later Emergency Fund"],
+    insurance: ["🌟 Premium HMO Partner", "Pay-Later Emergency Fund"],
     resources: [
       { name: "ICU Beds", available: true, count: 2 },
       { name: "O- Blood", available: true, count: 8 },
@@ -74,6 +74,13 @@ const Marketplace = () => {
       }
     };
     window.addEventListener('storage', handleStorageChange);
+
+    // Check URL parameters for AI Deep Linking
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('resource')) {
+      setFilter(params.get('resource'));
+    }
+
     return () => window.removeEventListener('storage', handleStorageChange);
   }, []);
 
@@ -147,8 +154,8 @@ const Marketplace = () => {
                   {/* Insurance/Aid Badges */}
                   <div className="flex flex-wrap gap-2 mb-4">
                      {hospital.insurance.map((ins, idx) => (
-                       <span key={idx} className="bg-teal-50 text-rose-700 border border-rose-100 text-[10px] font-bold px-2 py-0.5 rounded flex items-center gap-1">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>
+                       <span key={idx} className={`border text-[10px] font-bold px-2 py-0.5 rounded flex items-center gap-1 ${ins.includes('HMO') ? 'bg-amber-50 text-amber-700 border-amber-200' : 'bg-teal-50 text-teal-700 border-teal-100'}`}>
+                          {ins.includes('HMO') ? '💼' : <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>}
                           {ins}
                        </span>
                      ))}

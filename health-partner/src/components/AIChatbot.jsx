@@ -39,7 +39,7 @@ const VytalAIChatbot = ({ riskScore }) => {
         aiResponse = "I've analyzed your logs. You logged 'swollen palms' shortly after consuming peanuts. I recommend an elimination period for confirmation.";
       } else if (lowerInput.includes('emergency') || lowerInput.includes('hospital')) {
         aiResponse = "I am routing you to the nearest hospital with an available ICU bed and Oxygen tank. Opening the Critical Resource Hub now.";
-        setTimeout(() => navigate('/marketplace'), 2500);
+        setTimeout(() => navigate('/marketplace?resource=icu'), 2500);
       } else if (lowerInput.includes('genetic') || lowerInput.includes('family')) {
         aiResponse = "Based on your family tree, I've detected a hemophilia carrier line on your father's side. An X-Linked Recessive inheritance carries a 50% probability for males.";
       }

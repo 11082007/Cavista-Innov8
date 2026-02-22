@@ -4,6 +4,7 @@ import AIExplanationPanel from "./AIExplanationPanel";
 import GlucoseLog from "./GlucoseLog";
 import BPLog from "./BPLog";
 import AllergyTracker from "./AllergyTracker";
+import { calculateRisk } from "../ml/RiskEngine";
 
 const PrimaryEducation = ({ condition }) => {
   const content = {

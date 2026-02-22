@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-// Dummy Hospital Data (Realistic localized examples)
-const DUMMY_HOSPITALS = [
+// Initial Seed Data for the Hackathon
+const SEED_HOSPITALS = [
   {
     id: 1,
     name: "Lagos University Teaching Hospital (LUTH)",
@@ -10,6 +10,7 @@ const DUMMY_HOSPITALS = [
     phone: "+234 800 LUTH EMER",
     ambulance: "Available (2 Dispatching)",
     type: "Tertiary",
+    insurance: ["NHIS Accepted", "Red Cross Supported"],
     resources: [
       { name: "ICU Beds", available: true, count: 5 },
       { name: "O- Blood", available: true, count: 12 },
@@ -25,6 +26,7 @@ const DUMMY_HOSPITALS = [
     phone: "+234 800 GBAG EMER",
     ambulance: "Unavailable",
     type: "Secondary",
+    insurance: ["LSHS Accredited"],
     resources: [
       { name: "ICU Beds", available: false, count: 0 },
       { name: "O- Blood", available: true, count: 4 },
@@ -40,6 +42,7 @@ const DUMMY_HOSPITALS = [
     phone: "+234 800 REDD EMER",
     ambulance: "Available (4 Dispatching)",
     type: "Private",
+    insurance: ["Private HMO", "Pay-Later Emergency Fund"],
     resources: [
       { name: "ICU Beds", available: true, count: 2 },
       { name: "O- Blood", available: true, count: 8 },
@@ -50,17 +53,37 @@ const DUMMY_HOSPITALS = [
 ];
 
 const Marketplace = () => {
+  const [hospitals, setHospitals] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [filter, setFilter] = useState("all");
 
-  const filteredHospitals = DUMMY_HOSPITALS.filter(hospital => {
+  useEffect(() => {
+    // Load from Local Storage (Dynamic Admin Source) or Seed if empty
+    const saved = localStorage.getItem('vytal-hospitals');
+    if (saved) {
+      setHospitals(JSON.parse(saved));
+    } else {
+      localStorage.setItem('vytal-hospitals', JSON.stringify(SEED_HOSPITALS));
+      setHospitals(SEED_HOSPITALS);
+    }
+
+    // Listener for cross-tab updates (e.g. Admin changes a resource)
+    const handleStorageChange = (e) => {
+      if (e.key === 'vytal-hospitals' && e.newValue) {
+        setHospitals(JSON.parse(e.newValue));
+      }
+    };
+    window.addEventListener('storage', handleStorageChange);
+    return () => window.removeEventListener('storage', handleStorageChange);
+  }, []);
+
+  const filteredHospitals = hospitals.filter(hospital => {
     const matchesSearch = hospital.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
                           hospital.lga.toLowerCase().includes(searchQuery.toLowerCase());
     
-    // Simplistic filtering for the demo
-    if (filter === "blood") return matchesSearch && hospital.resources.find(r => r.name.includes("Blood") && r.available);
-    if (filter === "icu") return matchesSearch && hospital.resources.find(r => r.name.includes("ICU") && r.available);
-    if (filter === "venom") return matchesSearch && hospital.resources.find(r => r.name.includes("Anti-Venom") && r.available);
+    if (filter === "blood") return matchesSearch && hospital.resources.find(r => r.name === "O- Blood" && r.available);
+    if (filter === "icu") return matchesSearch && hospital.resources.find(r => r.name === "ICU Beds" && r.available);
+    if (filter === "venom") return matchesSearch && hospital.resources.find(r => r.name === "Anti-Venom" && r.available);
     if (filter === "ambulance") return matchesSearch && hospital.ambulance.includes("Available");
     
     return matchesSearch;
@@ -68,10 +91,6 @@ const Marketplace = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 pb-12">
-      {/* Navbar Integration Note: 
-          In the actual app structure we added a global navbar, but for this standalone page 
-          we'll add a header for clarity during the demo flow if accessed directly. 
-      */}
       <div className="bg-blue-900 pt-16 pb-24 px-4 text-center">
          <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-4">Hospital Resource Hub</h1>
          <p className="text-blue-100 text-lg max-w-2xl mx-auto">
@@ -112,7 +131,7 @@ const Marketplace = () => {
             {filteredHospitals.map(hospital => (
                <div key={hospital.id} className="bg-white rounded-2xl p-6 shadow-sm border border-gray-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col">
                   
-                  <div className="flex justify-between items-start mb-4">
+                  <div className="flex justify-between items-start mb-2">
                      <div>
                         <h3 className="font-extrabold text-gray-900 text-lg leading-tight mb-1">{hospital.name}</h3>
                         <p className="text-gray-500 font-medium text-sm flex items-center gap-1">
@@ -123,6 +142,16 @@ const Marketplace = () => {
                      <span className={`text-xs font-bold px-2 py-1 rounded bg-gray-100 text-gray-600`}>
                         {hospital.type}
                      </span>
+                  </div>
+
+                  {/* Insurance/Aid Badges */}
+                  <div className="flex flex-wrap gap-2 mb-4">
+                     {hospital.insurance.map((ins, idx) => (
+                       <span key={idx} className="bg-indigo-50 text-indigo-700 border border-indigo-100 text-[10px] font-bold px-2 py-0.5 rounded flex items-center gap-1">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>
+                          {ins}
+                       </span>
+                     ))}
                   </div>
 
                   {/* Resource Chips */}

@@ -10,9 +10,9 @@ const Signup = ({ setUser }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // VYVON Hackathon signup logic
+    // VYTAL Hackathon signup logic
     const userData = { email, name, condition };
-    localStorage.setItem("vyvon-user", JSON.stringify(userData));
+    localStorage.setItem("vytal-user", JSON.stringify(userData));
     setUser(userData);
     navigate("/");
   };
@@ -20,7 +20,7 @@ const Signup = ({ setUser }) => {
   return (
     <div className="min-h-screen flex items-center justify-center p-4">
       <div className="max-w-md w-full bg-white rounded-2xl shadow-xl p-8 border-t-8 border-purple-600">
-        <h1 className="text-3xl font-extrabold text-purple-900 text-center mb-2">VYVON</h1>
+        <h1 className="text-3xl font-extrabold text-purple-900 text-center mb-2">VYTAL</h1>
         <p className="text-gray-500 text-center mb-8 font-medium">From Data to Prevention.</p>
 
         <form onSubmit={handleSubmit} className="space-y-4">

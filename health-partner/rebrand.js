@@ -28,13 +28,14 @@ files.forEach(f => {
     let content = fs.readFileSync(f, 'utf8');
     let original = content;
     
-    content = content.replace(/VYTAL/g, 'VYVON');
-    content = content.replace(/Vytal/g, 'Vyvon');
-    content = content.replace(/vytal-/g, 'vyvon-');
+    // Revert logic
+    content = content.replace(/VYVON/g, 'VYTAL');
+    content = content.replace(/Vyvon/g, 'Vytal');
+    content = content.replace(/vyvon-/g, 'vytal-');
 
     if (content !== original) {
       fs.writeFileSync(f, content, 'utf8');
-      console.log('Rebranded:', f);
+      console.log('Reverted to Vytal:', f);
     }
   }
 });

@@ -1,10 +1,26 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const VyvonAIChatbot = ({ riskScore }) => {
+const VytalAIChatbot = ({ riskScore }) => {
   const [isOpen, setIsOpen] = useState(false);
+  // Get user condition dynamically
+  const user = JSON.parse(localStorage.getItem('vytal-user') || '{}');
+  const condition = user.condition || 'general';
+
+  const getInitialMessage = () => {
+    switch(condition) {
+      case 'hypertension': return "Hello! I'm Vytal AI. I noticed your blood pressure readings have been consistent this week. How are you feeling today?";
+      case 'diabetes': return "Hello! I'm Vytal AI. Remember to track your post-meal glucose today. Need help analyzing a recent meal?";
+      case 'sickle-cell': return "Hello! I'm Vytal AI. Hydration is key today. Are you experiencing any joint pain or fatigue?";
+      case 'cancer': return "Hello! I'm Vytal AI. I'm here to support your oncology journey. Do you have any new symptoms to log today?";
+      case 'reproductive': return "Hello 🌸. I'm Vytal AI. I'm tracking your cycle phases. How is your energy level today?";
+      case 'allergies': return "Hello! I'm Vytal AI. Have you encountered any new environmental or food triggers today?";
+      default: return "Hello! I'm Vytal AI, your 24/7 Intelligent Health Assistant. How can I help you today?";
+    }
+  };
+
   const [messages, setMessages] = useState([
-    { sender: 'ai', text: "Hello! I'm Vyvon AI, your 24/7 Intelligent Health Assistant. How can I help you today?" }
+    { sender: 'ai', text: getInitialMessage() }
   ]);
   const [input, setInput] = useState('');
   const messagesEndRef = useRef(null);
@@ -30,6 +46,12 @@ const VyvonAIChatbot = ({ riskScore }) => {
     // Simulate AI response based on slide 8 logic
     setTimeout(() => {
       let aiResponse = "I'm monitoring your data. It looks stable! Keep up the good habits.";
+
+      // Dynamic fallback based on condition if no keywords hit
+      if (condition === 'hypertension') aiResponse = "Your BP trends are stable today. Remember to avoid high-sodium meals.";
+      if (condition === 'diabetes') aiResponse = "Your glucose variance is within 10% of your target. Great job managing your carbs today!";
+      if (condition === 'sickle-cell') aiResponse = "I've noted that. Please ensure you drink at least 1 more liter of water this afternoon.";
+      if (condition === 'reproductive') aiResponse = "Noted. Your symptoms align with your current luteal phase. I recommend magnesium-rich foods today.";
       
       const lowerInput = input.toLowerCase();
       
@@ -61,7 +83,7 @@ const VyvonAIChatbot = ({ riskScore }) => {
                 V
               </div>
               <div>
-                <h3 className="text-white font-bold">VYVON AI</h3>
+                <h3 className="text-white font-bold">VYTAL AI</h3>
                 <p className="text-purple-200 text-xs text-left">24/7 Intelligent Assistant</p>
               </div>
             </div>
@@ -92,7 +114,7 @@ const VyvonAIChatbot = ({ riskScore }) => {
               type="text" 
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder="Ask VYVON AI..." 
+              placeholder="Ask VYTAL AI..." 
               className="flex-1 bg-gray-50 border border-gray-200 rounded-xl px-4 py-2 text-sm focus:outline-none focus:border-teal-400 focus:ring-1 focus:ring-teal-400 transition-all"
             />
             <button 
@@ -121,4 +143,4 @@ const VyvonAIChatbot = ({ riskScore }) => {
   );
 };
 
-export default VyvonAIChatbot;
+export default VytalAIChatbot;

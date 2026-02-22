@@ -1,4 +1,4 @@
-// Utility functions for VYVON Health Platform
+// Utility functions for VYTAL Health Platform
 
 /**
  * Get user conditions from localStorage

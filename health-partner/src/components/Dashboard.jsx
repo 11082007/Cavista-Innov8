@@ -210,12 +210,64 @@ const getReadingFeedback = (r) => {
     return <span className="text-green-600 font-bold sm:ml-2 bg-green-100 px-2 py-0.5 rounded text-xs">Stable.</span>;
   }
   if (r.type === 'reproductive') {
-    if (r.flow === "Heavy" && r.symptoms.toLowerCase().includes("cramp")) return <span className="text-rose-600 font-bold sm:ml-2 bg-rose-100 px-2 py-0.5 rounded text-xs">High Pain & Flow - Hydrate & use warm compress. Consult MD if pain persists &gt;48hrs.</span>;
-    if (r.mood === "Fatigued" || r.mood === "Anxious / Irritable") return <span className="text-pink-600 font-bold sm:ml-2 bg-pink-100 px-2 py-0.5 rounded text-xs">PMS Detected - Prioritize magnesium and rest. We've got you 🫂.</span>;
-    return <span className="text-rose-500 font-bold sm:ml-2 bg-pink-50 px-2 py-0.5 rounded text-xs text-center border border-pink-100">Cycle Logged. Analyzing pattern... ✨</span>;
+
   }
   return null;
-}
+};
+
+const GamificationScore = ({ condition }) => {
+  return (
+    <div className="bg-gradient-to-r from-purple-900 to-indigo-800 p-6 rounded-3xl shadow-2xl mb-8 relative overflow-hidden animate-fadeIn">
+      <div className="absolute top-0 right-0 -mr-8 -mt-8 w-48 h-48 bg-white opacity-5 rounded-full blur-2xl"></div>
+      <div className="flex flex-col md:flex-row items-center gap-6 relative z-10">
+        <div className="w-24 h-24 rounded-full border-4 border-teal-400 flex items-center justify-center bg-purple-900/50 shadow-inner">
+           <span className="text-3xl font-black text-white">850</span>
+        </div>
+        <div className="flex-1 text-center md:text-left">
+           <h3 className="text-2xl font-bold text-white mb-1">Excellent VYTAL Score</h3>
+           <p className="text-purple-200 text-sm mb-3">You are in the top 15% of users managing {condition.replace('-', ' ')}.</p>
+           <div className="flex flex-wrap gap-2 justify-center md:justify-start">
+              <span className="bg-teal-500/20 border border-teal-400/30 text-teal-300 text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1">🔥 7-Day Log Streak</span>
+              <span className="bg-purple-500/20 border border-purple-400/30 text-purple-200 text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1">💊 Adherence Master</span>
+           </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const MedicationReminders = ({ condition }) => {
+  return (
+    <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-200 mb-6 animate-fadeIn">
+      <h3 className="text-lg font-bold text-gray-900 mb-4 flex justify-between items-center">
+        <span>Today's Action Plan</span>
+        <span className="bg-orange-100 text-orange-700 text-xs font-bold px-2 py-1 rounded">2 Pending</span>
+      </h3>
+      <div className="space-y-3">
+         <div className="flex items-center justify-between p-3 bg-gray-50 rounded-xl border border-gray-100">
+            <div className="flex items-center gap-3">
+               <div className="w-10 h-10 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M10.5 20.5 19 12a4.95 4.95 0 1 0-7-7L3.5 13.5a4.95 4.95 0 1 0 7 7Z"/><path d="m8.5 8.5 7 7"/></svg></div>
+               <div>
+                 <p className="font-bold text-gray-800 text-sm">Morning Medication</p>
+                 <p className="text-xs text-gray-500">{condition === 'hypertension' ? 'Amlodipine 5mg' : condition === 'diabetes' ? 'Metformin 500mg' : condition === 'sickle-cell' ? 'Hydroxyurea & Folic Acid' : condition === 'cancer' ? 'Chemo Maintenance' : 'Daily Supplements'} • After Breakfast</p>
+               </div>
+            </div>
+            <button className="bg-purple-600 text-white font-bold text-xs px-4 py-2 rounded-lg hover:bg-purple-700 transition shadow-sm">Take</button>
+         </div>
+         <div className="flex items-center justify-between p-3 bg-gray-50 rounded-xl border border-gray-100">
+            <div className="flex items-center gap-3">
+               <div className="w-10 h-10 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+               <div>
+                 <p className="font-bold text-gray-800 text-sm">Upcoming Routine Check</p>
+                 <p className="text-xs text-gray-500">{condition === 'diabetes' ? 'HbA1c Profile' : condition === 'reproductive' ? 'Hormonal Panel' : 'Primary Care Visit'} • Tomorrow, 9 AM</p>
+               </div>
+            </div>
+            <button className="bg-white border border-gray-300 text-gray-600 font-bold text-xs px-4 py-2 rounded-lg hover:bg-gray-50 transition">Details</button>
+         </div>
+      </div>
+    </div>
+  );
+};
 
 const Dashboard = () => {
   const [readings, setReadings] = useState([]);
@@ -223,7 +275,7 @@ const Dashboard = () => {
   const [activeTab, setActiveTab] = useState("tertiary");
   
   // Get user condition from local storage
-  const user = JSON.parse(localStorage.getItem("vyvon-user") || "{}");
+  const user = JSON.parse(localStorage.getItem("vytal-user") || "{}");
   const condition = user.condition || "general";
   
   // Conditionally set loggingType
@@ -237,7 +289,7 @@ const Dashboard = () => {
   });
 
   useEffect(() => {
-    const saved = localStorage.getItem("vyvon-readings");
+    const saved = localStorage.getItem("vytal-readings");
     if (saved) {
       setReadings(JSON.parse(saved));
     } else {
@@ -271,11 +323,11 @@ const Dashboard = () => {
     }
     const finalReadings = updated.slice(-10); // keep last 10
     setReadings(finalReadings);
-    localStorage.setItem("vyvon-readings", JSON.stringify(finalReadings));
+    localStorage.setItem("vytal-readings", JSON.stringify(finalReadings));
   };
 
   const handleLogout = () => {
-    localStorage.removeItem("vyvon-user");
+    localStorage.removeItem("vytal-user");
     window.location.href = "/login";
   };
 
@@ -319,6 +371,9 @@ const Dashboard = () => {
         
         {activeTab === 'tertiary' && (
           <div className="animate-fadeIn space-y-6">
+             <GamificationScore condition={condition} />
+             <MedicationReminders condition={condition} />
+             
              {condition === 'allergies' ? (
                 <AllergyTracker />
              ) : (

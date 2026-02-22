@@ -10,10 +10,10 @@ const AdminDashboard = () => {
   // Load hospitals from LocalStorage
   useEffect(() => {
     const loadData = () => {
-      const saved = localStorage.getItem('vyvon-hospitals');
+      const saved = localStorage.getItem('vytal-hospitals');
       if (saved) setHospitals(JSON.parse(saved));
       
-      const pending = localStorage.getItem('vyvon-pending-syncs');
+      const pending = localStorage.getItem('vytal-pending-syncs');
       if (pending) setPendingSyncs(JSON.parse(pending).length);
     };
 
@@ -40,20 +40,20 @@ const AdminDashboard = () => {
   }, []);
 
   const syncPendingData = () => {
-    const pending = localStorage.getItem('vyvon-pending-syncs');
+    const pending = localStorage.getItem('vytal-pending-syncs');
     if (pending) {
       const updates = JSON.parse(pending);
       if (updates.length > 0) {
         // In a real app, this would be an API call `await fetch('/api/sync')`
         // For the hackathon, we simulate a delay for visual effect
         setTimeout(() => {
-          localStorage.removeItem('vyvon-pending-syncs');
+          localStorage.removeItem('vytal-pending-syncs');
           setPendingSyncs(0);
           
           // Force a storage event to update other tabs immediately
           window.dispatchEvent(new Event('storage'));
           
-          alert(`Successfully synced ${updates.length} offline updates to the VYVON cloud!`);
+          alert(`Successfully synced ${updates.length} offline updates to the VYTAL cloud!`);
         }, 1500);
       }
     }
@@ -75,18 +75,18 @@ const AdminDashboard = () => {
     });
 
     setHospitals(updatedHospitals);
-    localStorage.setItem('vyvon-hospitals', JSON.stringify(updatedHospitals));
+    localStorage.setItem('vytal-hospitals', JSON.stringify(updatedHospitals));
 
     if (!isOnline) {
       // Queue for offline sync
-      const pending = JSON.parse(localStorage.getItem('vyvon-pending-syncs') || '[]');
+      const pending = JSON.parse(localStorage.getItem('vytal-pending-syncs') || '[]');
       pending.push({
         hospitalId,
         resourceName,
         newCount,
         timestamp: new Date().toISOString()
       });
-      localStorage.setItem('vyvon-pending-syncs', JSON.stringify(pending));
+      localStorage.setItem('vytal-pending-syncs', JSON.stringify(pending));
       setPendingSyncs(pending.length);
     } else {
        // Force a storage event to update the other tabs (Marketplace) instantly
@@ -101,7 +101,7 @@ const AdminDashboard = () => {
          <div className="flex items-center gap-4">
             <div className="w-10 h-10 bg-purple-600 rounded-lg flex items-center justify-center font-bold text-xl">V</div>
             <div>
-               <h1 className="font-bold text-lg leading-tight">VYVON Admin Center</h1>
+               <h1 className="font-bold text-lg leading-tight">VYTAL Admin Center</h1>
                <p className="text-gray-400 text-xs">Resource Management</p>
             </div>
          </div>

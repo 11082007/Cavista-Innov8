@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { calculateRisk } from "../ml/RiskEngine";
+import { calculateRisk } from "../ml/riskEngine";
 import AIExplanationPanel from "./AIExplanationPanel";
 import GlucoseLog from "./GlucoseLog";
 import BPLog from "./BPLog";

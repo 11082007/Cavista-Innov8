@@ -6,29 +6,6 @@ const Landing = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-red-50 via-white to-rose-50 text-gray-800">
-      {/* Navigation Bar */}
-      <nav className="flex justify-between items-center py-6 px-8 max-w-7xl mx-auto">
-        <div className="flex items-center gap-3">
-           <div className="w-10 h-10 bg-gradient-to-tr from-red-500 to-rose-400 rounded-xl shadow-lg flex items-center justify-center">
-             <span className="text-white font-bold text-xl">V</span>
-           </div>
-           <span className="text-2xl font-extrabold text-red-900 tracking-tight">VYTAL</span>
-        </div>
-        <div className="space-x-4 flex items-center">
-          <button 
-           onClick={() => navigate('/login')}
-           className="text-red-700 font-semibold hover:text-red-900 transition-colors"
-          >
-            Log In
-          </button>
-          <button 
-           onClick={() => navigate('/signup')}
-           className="bg-red-600 hover:bg-red-700 text-white px-6 py-2.5 rounded-full font-bold shadow-md transition-all transform hover:scale-105"
-          >
-            Get Started
-          </button>
-        </div>
-      </nav>
 
       {/* Hero Section */}
       <main className="max-w-7xl mx-auto px-8 pt-16 pb-24 grid md:grid-cols-2 gap-12 items-center">

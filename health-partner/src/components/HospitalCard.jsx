@@ -1,14 +1,14 @@
 const HospitalCard = ({ hospital }) => {
   return (
-    <div className="bg-white rounded-xl shadow-lg border border-emerald-100 overflow-hidden hover:shadow-xl transition-all">
+    <div className="bg-white rounded-xl shadow-lg border border-indigo-100 overflow-hidden hover:shadow-xl transition-all">
       {/* Header */}
-      <div className="bg-gradient-to-r from-emerald-500 to-teal-500 px-6 py-4">
+      <div className="bg-gradient-to-r from-indigo-500 to-blue-500 px-6 py-4">
         <div className="flex justify-between items-start">
           <div>
             <h3 className="font-semibold text-lg text-white">
               {hospital.name}
             </h3>
-            <p className="text-emerald-100 text-sm">{hospital.lga}</p>
+            <p className="text-indigo-100 text-sm">{hospital.lga}</p>
           </div>
           <div className="bg-white/20 backdrop-blur-sm rounded-lg px-3 py-1">
             <span className="text-white text-sm font-medium">
@@ -32,7 +32,7 @@ const HospitalCard = ({ hospital }) => {
             {hospital.specialties?.map((s) => (
               <span
                 key={s}
-                className="px-2 py-1 bg-emerald-100 text-emerald-700 rounded-full text-xs"
+                className="px-2 py-1 bg-indigo-100 text-indigo-700 rounded-full text-xs"
               >
                 {s}
               </span>
@@ -99,10 +99,10 @@ const HospitalCard = ({ hospital }) => {
 
         {/* Actions */}
         <div className="flex gap-2 mt-4">
-          <button className="flex-1 bg-emerald-600 text-white py-2 px-4 rounded-lg hover:bg-emerald-700 transition-colors text-sm font-medium">
+          <button className="flex-1 bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700 transition-colors text-sm font-medium">
             Schedule Checkup
           </button>
-          <button className="px-4 py-2 border border-emerald-200 rounded-lg hover:bg-emerald-50 transition-colors text-emerald-700">
+          <button className="px-4 py-2 border border-indigo-200 rounded-lg hover:bg-indigo-50 transition-colors text-indigo-700">
             📋 Details
           </button>
         </div>

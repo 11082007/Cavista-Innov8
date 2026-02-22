@@ -7,23 +7,48 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: "autoUpdate",
-      workbox: {
-        globPatterns: ["**/*.{js,css,html,ico,png,svg}"], // Caches your code for offline
-      },
+      includeAssets: ["icon-192.png", "icon-512.png"],
       manifest: {
-        name: "AI Health Partner",
-        short_name: "HealthAI",
-        description: "AI-powered preventive healthcare for LGAs",
-        theme_color: "#ffffff",
+        name: "VYTAL Health",
+        short_name: "VYTAL",
+        description: "Your AI Health Partner",
+        theme_color: "#2563eb",
+        background_color: "#ffffff",
+        display: "standalone",
+        start_url: "/",
         icons: [
-          { src: "pwa-192.png", sizes: "192x192", type: "image/png" },
-          { src: "pwa-512.png", sizes: "512x512", type: "image/png" },
+          {
+            src: "/icon-192.png",
+            sizes: "192x192",
+            type: "image/png",
+          },
+          {
+            src: "/icon-512.png",
+            sizes: "512x512",
+            type: "image/png",
+          },
         ],
-        server: {
-          port: 3000,
-          open: true,
-        },
+      },
+      workbox: {
+        globPatterns: ["**/*.{js,css,html,ico,png,svg,json}"],
+        runtimeCaching: [
+          {
+            urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
+            handler: "CacheFirst",
+            options: {
+              cacheName: "google-fonts-cache",
+              expiration: {
+                maxEntries: 10,
+                maxAgeSeconds: 60 * 60 * 24 * 365,
+              },
+            },
+          },
+        ],
       },
     }),
   ],
+  server: {
+    port: 5173,
+    open: true,
+  },
 });

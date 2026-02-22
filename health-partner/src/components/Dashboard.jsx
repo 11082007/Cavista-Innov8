@@ -12,7 +12,8 @@ const PrimaryEducation = ({ condition }) => {
     diabetes: { title: "Carbohydrate Management", text: "Pair complex carbohydrates with protein or healthy fats to prevent sudden blood sugar spikes.", note: "Daily Note: A 15-minute walk after meals significantly reduces glucose spikes." },
     "sickle-cell": { title: "Genetic Compatibility & Hydration", text: "Pre-marital genetic counseling is vital. An AS and AS genotype match carries a 25% probability of an SS offspring in every pregnancy.", note: "Daily Note: Drink at least 3-4 liters of water today to prevent sickling and avoid extreme temperatures." },
     cancer: { title: "Routine Screenings", text: "Early detection saves lives. Schedule regular Pap smears (cervical) and prostate exams in accordance with your age bracket.", note: "Daily Note: Focus on nutrient-dense foods to maintain energy levels and immune support." },
-    allergies: { title: "Trigger Identification", text: "Keep a meticulous food and environment diary. Many adult-onset allergies develop over a period of consistent low-grade exposure.", note: "Daily Note: Review ingredients in every new food item before eating." }
+    allergies: { title: "Trigger Identification", text: "Keep a meticulous food and environment diary. Many adult-onset allergies develop over a period of consistent low-grade exposure.", note: "Daily Note: Review ingredients in every new food item before eating." },
+    reproductive: { title: "Cycle & Hormonal Health", text: "Track your menstrual phases to understand energy dips, mood shifts, and fertile windows. We adapt to your body's rhythm.", note: "Daily Note: You are in your Luteal phase. Prioritize warm foods, gentle stretching, and self-care today 🌸." }
   };
   
   const current = content[condition] || content.general;
@@ -155,6 +156,42 @@ const CancerLog = ({ onAdd }) => {
   );
 };
 
+const ReproductiveLog = ({ onAdd }) => {
+  const [flow, setFlow] = useState("Medium");
+  const [mood, setMood] = useState("Calm / Balanced");
+  const [symptoms, setSymptoms] = useState("");
+  return (
+    <div className="bg-gradient-to-br from-pink-50 to-rose-50 p-6 rounded-2xl shadow-sm border border-pink-100 mb-6">
+      <h3 className="font-bold text-rose-900 mb-4 flex items-center gap-2">🌸 Daily Reproductive Health Log</h3>
+      <div className="grid grid-cols-2 gap-4 mb-4">
+        <div>
+          <label className="block text-sm font-bold text-rose-800 mb-1">Flow Intensity</label>
+          <select value={flow} onChange={e=>setFlow(e.target.value)} className="w-full border border-pink-200 rounded-xl p-3 text-gray-700 focus:ring-2 focus:ring-rose-400 outline-none">
+            <option>None (Not Menstruating)</option>
+            <option>Light Spotting</option>
+            <option>Medium</option>
+            <option>Heavy</option>
+          </select>
+        </div>
+        <div>
+          <label className="block text-sm font-bold text-rose-800 mb-1">Mood / Energy</label>
+          <select value={mood} onChange={e=>setMood(e.target.value)} className="w-full border border-pink-200 rounded-xl p-3 text-gray-700 focus:ring-2 focus:ring-rose-400 outline-none">
+            <option>Calm / Balanced</option>
+            <option>Fatigued</option>
+            <option>Anxious / Irritable</option>
+            <option>High Energy</option>
+          </select>
+        </div>
+      </div>
+      <div className="mb-5">
+        <label className="block text-sm font-bold text-rose-800 mb-1">Physical Symptoms</label>
+        <input type="text" value={symptoms} onChange={e=>setSymptoms(e.target.value)} className="w-full border border-pink-200 rounded-xl p-3 focus:ring-2 focus:ring-rose-400 outline-none placeholder-pink-300 text-gray-700" placeholder="e.g. cramps, bloating, tender breasts" />
+      </div>
+      <button onClick={() => { onAdd({ type: 'reproductive', flow, mood, symptoms }); setSymptoms(''); }} className="w-full bg-gradient-to-r from-rose-400 to-pink-500 text-white font-bold py-3 rounded-xl shadow-md transition-all active:scale-95 hover:from-rose-500 hover:to-pink-600">Log Daily Vitals 💖</button>
+    </div>
+  );
+};
+
 const getReadingFeedback = (r) => {
   if (r.glucose) {
     if (r.glucose > 180) return <span className="text-red-600 font-bold sm:ml-2 bg-red-100 px-2 py-0.5 rounded text-xs">CRITICAL HIGH - Visit Hospital!</span>;
@@ -171,6 +208,11 @@ const getReadingFeedback = (r) => {
     if (r.pain >= 8) return <span className="text-red-600 font-bold sm:ml-2 bg-red-100 px-2 py-0.5 rounded text-xs">CRISIS LEVEL - Use Emergency Hub!</span>;
     if (r.water < 4) return <span className="text-orange-600 font-bold sm:ml-2 bg-orange-100 px-2 py-0.5 rounded text-xs">Dehydrated - Drink water!</span>;
     return <span className="text-green-600 font-bold sm:ml-2 bg-green-100 px-2 py-0.5 rounded text-xs">Stable.</span>;
+  }
+  if (r.type === 'reproductive') {
+    if (r.flow === "Heavy" && r.symptoms.toLowerCase().includes("cramp")) return <span className="text-rose-600 font-bold sm:ml-2 bg-rose-100 px-2 py-0.5 rounded text-xs">High Pain & Flow - Hydrate & use warm compress. Consult MD if pain persists &gt;48hrs.</span>;
+    if (r.mood === "Fatigued" || r.mood === "Anxious / Irritable") return <span className="text-pink-600 font-bold sm:ml-2 bg-pink-100 px-2 py-0.5 rounded text-xs">PMS Detected - Prioritize magnesium and rest. We've got you 🫂.</span>;
+    return <span className="text-rose-500 font-bold sm:ml-2 bg-pink-50 px-2 py-0.5 rounded text-xs text-center border border-pink-100">Cycle Logged. Analyzing pattern... ✨</span>;
   }
   return null;
 }
@@ -190,6 +232,7 @@ const Dashboard = () => {
     if (condition === 'hypertension') return 'bp';
     if (condition === 'sickle-cell') return 'sickle';
     if (condition === 'cancer') return 'cancer';
+    if (condition === 'reproductive') return 'reproductive';
     return 'glucose'; // Fallback
   });
 
@@ -290,6 +333,7 @@ const Dashboard = () => {
                   {condition === 'cancer' && <CancerLog onAdd={addReading} />}
                   {condition === 'diabetes' && <GlucoseLog onAdd={addReading} />}
                   {condition === 'hypertension' && <BPLog onAdd={addReading} />}
+                  {condition === 'reproductive' && <ReproductiveLog onAdd={addReading} />}
                   
                   {/* General condition shows a tab toggle for BP and Glucose */}
                   {condition === 'general' && (
@@ -329,6 +373,7 @@ const Dashboard = () => {
                                 {r.systolic && <span className="font-semibold text-sm">BP: {r.systolic}/{r.diastolic}</span>}
                                 {r.type === 'sickle-cell' && <span className="font-semibold text-sm">Pain: {r.pain}/10, Hydration: {r.water} cups</span>}
                                 {r.type === 'cancer' && <span className="font-semibold text-sm">Note: {r.symptom}</span>}
+                                {r.type === 'reproductive' && <span className="font-semibold text-sm text-pink-700">Flow: {r.flow} | Mood: {r.mood} {r.symptoms ? `| Symptoms: ${r.symptoms}` : ''}</span>}
                                 
                                 {/* AI Immediate Feedback Component */}
                                 {getReadingFeedback(r)}

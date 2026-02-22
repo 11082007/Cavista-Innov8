@@ -67,6 +67,7 @@ const Signup = ({ setUser }) => {
               <option value="sickle-cell">Sickle Cell Care</option>
               <option value="cancer">Cancer Prevention (Pap Smear/Prostate)</option>
               <option value="allergies">Undiagnosed Allergies</option>
+              <option value="reproductive">Reproductive & Cycle Health</option>
             </select>
           </div>
 

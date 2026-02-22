@@ -19,9 +19,9 @@ const Navbar = ({ user, onLogout }) => {
           {user ? (
             <>
               <Link to="/" className="font-semibold text-gray-700 hover:text-purple-600 transition">Dashboard</Link>
-              {/* Added back Marketplace and Resource Hub links */}
-              <Link to="/marketplace" className="font-semibold text-gray-700 hover:text-purple-600 transition">Emergency Hub</Link>
-              <Link to="/admin" className="font-semibold text-gray-700 hover:text-purple-600 transition">Resource Hub (Admin)</Link>
+              {/* Updated strictly to match Slide 7 terminology */}
+              <Link to="/marketplace" className="font-semibold text-gray-700 hover:text-purple-600 transition">Critical Resource Hub</Link>
+              <Link to="/admin" className="font-semibold text-gray-700 hover:text-purple-600 transition">Admin Portal</Link>
               <button 
                 onClick={() => {
                   onLogout();

@@ -11,13 +11,13 @@ const Landing = () => {
       <main className="max-w-7xl mx-auto px-8 pt-16 pb-24 grid md:grid-cols-2 gap-12 items-center">
         <div className="space-y-8 z-10">
           <div className="inline-block bg-purple-100 text-purple-800 font-semibold px-4 py-1.5 rounded-full text-sm border border-purple-200">
-             ✨ AI as your Health Partner
+             ✨ Your AI Partner for Proactive Health Management
           </div>
           <h1 className="text-5xl md:text-6xl font-extrabold text-gray-900 leading-tight">
             From Data to <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-teal-400">Prevention.</span>
           </h1>
           <p className="text-xl text-gray-600 leading-relaxed max-w-lg">
-            Actively manage non-communicable diseases through predictive AI. We are transforming healthcare by catching complications before they happen.
+            Transforming healthcare from reactive treatment to proactive prevention. We continuously analyze your personal health data to detect early warning signs before complications happen.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 pt-4">
@@ -85,9 +85,10 @@ const Landing = () => {
               <div className="w-14 h-14 bg-orange-100 text-orange-600 rounded-2xl flex items-center justify-center mb-6">
                 <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Layer 1: Preventive Education</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">Layer 1: Primary Prevention</h3>
+              <p className="text-sm font-bold text-orange-600 mb-4 uppercase tracking-wider">Stop it before it starts</p>
               <p className="text-gray-600 leading-relaxed leading-relaxed mb-6">
-                Education is the first defense against chronic diseases. Learn critical disease interactions, like why an AS and AS genetic match needs specialized counseling before marriage.
+                Provides personalized preventive education based on your unique profile. Guides you on lifestyle choices to reduce the risk of developing chronic diseases in the first place.
               </p>
             </div>
 
@@ -96,9 +97,10 @@ const Landing = () => {
               <div className="w-14 h-14 bg-purple-100 text-purple-600 rounded-2xl flex items-center justify-center mb-6">
                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m20 8-8 5-8-5V6l8 5 8-5m0-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2Z"/><circle cx="12" cy="12" r="3"/></svg>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Layer 2: Genetic & Family Risks</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">Layer 2: Secondary Prevention</h3>
+              <p className="text-sm font-bold text-purple-600 mb-4 uppercase tracking-wider">Catch it early</p>
               <p className="text-gray-600 leading-relaxed mb-6">
-                Upload your family tree. Our AI analyzes your medical records to identify autosomal and x-linked inheritance risks, catching probabilities of conditions like hemophilia or breast cancer early.
+                Your genetic risk analyst. Analyzes inheritance patterns (autosomal, X-linked) to calculate probabilities and proactively alerts you to specific signs enabling early screening.
               </p>
             </div>
 
@@ -107,9 +109,10 @@ const Landing = () => {
               <div className="w-14 h-14 bg-white/20 text-white rounded-2xl flex items-center justify-center mb-6">
                 <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
               </div>
-              <h3 className="text-2xl font-bold mb-4">Layer 3: Active Disease Monitoring</h3>
+              <h3 className="text-2xl font-bold mb-2">Layer 3: Tertiary Prevention</h3>
+              <p className="text-sm font-bold text-purple-200 mb-4 uppercase tracking-wider">Manage & prevent complications</p>
               <p className="text-purple-50 leading-relaxed mb-6">
-                For patients with existing chronic conditions. We log your daily metrics—from glucose to unexplained allergic reactions—and our AI finds the invisible trends before a crisis hits.
+                AI-driven trend detection to identify invisible triggers. We track your daily metrics and correlate them over time to foresee and prevent a crisis before it ever hits.
               </p>
             </div>
           </div>

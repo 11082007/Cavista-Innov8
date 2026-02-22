@@ -47,14 +47,14 @@ const AIExplanationPanel = ({ riskData }) => {
   const containerClasses = `
     w-full rounded-2xl p-6 mb-6 shadow-lg 
     bg-gradient-to-br ${panelColor}
-    border-2 ${isHighRisk ? 'border-red-400' : isMediumRisk ? 'border-orange-300' : 'border-blue-200'}
+    border-2 ${isHighRisk ? 'border-red-400' : isMediumRisk ? 'border-orange-300' : 'border-red-200'}
     transition-all duration-700 ease-in-out transform
     ${isVisible ? 'translate-y-0 opacity-100 scale-100' : '-translate-y-4 opacity-0 scale-95'}
   `;
 
   const headerTextClasses = `
     text-lg font-bold flex items-center gap-2
-    ${isHighRisk ? 'text-red-800' : isMediumRisk ? 'text-orange-800' : 'text-blue-800'}
+    ${isHighRisk ? 'text-red-800' : isMediumRisk ? 'text-orange-800' : 'text-red-800'}
   `;
 
   return (
@@ -63,18 +63,18 @@ const AIExplanationPanel = ({ riskData }) => {
         {/* Left Side: Summary and Explanation */}
         <div className="flex-1 space-y-3">
           <div className={headerTextClasses}>
-            <span className={`p-2 rounded-full ${isHighRisk ? 'bg-red-200' : isMediumRisk ? 'bg-orange-200' : 'bg-blue-200'}`}>
+            <span className={`p-2 rounded-full ${isHighRisk ? 'bg-red-200' : isMediumRisk ? 'bg-orange-200' : 'bg-red-200'}`}>
               <Icon />
             </span>
             <span>VYTAL AI Medical Analyst</span>
           </div>
           
           <div className="pl-12">
-            <h3 className={`text-xl font-extrabold mb-1 ${isHighRisk ? 'text-red-900' : isMediumRisk ? 'text-orange-900' : 'text-blue-900'}`}>
+            <h3 className={`text-xl font-extrabold mb-1 ${isHighRisk ? 'text-red-900' : isMediumRisk ? 'text-orange-900' : 'text-red-900'}`}>
               Risk Score: {score} — {level} Risk
             </h3>
             
-            <p className={`text-base font-medium ${isHighRisk ? 'text-red-800' : isMediumRisk ? 'text-orange-800' : 'text-blue-800'}`}>
+            <p className={`text-base font-medium ${isHighRisk ? 'text-red-800' : isMediumRisk ? 'text-orange-800' : 'text-red-800'}`}>
               {explanation}
             </p>
 

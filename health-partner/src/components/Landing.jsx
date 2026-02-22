@@ -5,39 +5,16 @@ const Landing = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 text-gray-800">
-      {/* Navigation Bar */}
-      <nav className="flex justify-between items-center py-6 px-8 max-w-7xl mx-auto">
-        <div className="flex items-center gap-3">
-           <div className="w-10 h-10 bg-gradient-to-tr from-blue-500 to-indigo-400 rounded-xl shadow-lg flex items-center justify-center">
-             <span className="text-white font-bold text-xl">V</span>
-           </div>
-           <span className="text-2xl font-extrabold text-blue-900 tracking-tight">VYTAL</span>
-        </div>
-        <div className="space-x-4 flex items-center">
-          <button 
-           onClick={() => navigate('/login')}
-           className="text-blue-700 font-semibold hover:text-blue-900 transition-colors"
-          >
-            Log In
-          </button>
-          <button 
-           onClick={() => navigate('/signup')}
-           className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-full font-bold shadow-md transition-all transform hover:scale-105"
-          >
-            Get Started
-          </button>
-        </div>
-      </nav>
+    <div className="min-h-screen bg-gradient-to-br from-red-50 via-white to-rose-50 text-gray-800">
 
       {/* Hero Section */}
       <main className="max-w-7xl mx-auto px-8 pt-16 pb-24 grid md:grid-cols-2 gap-12 items-center">
         <div className="space-y-8 z-10">
-          <div className="inline-block bg-blue-100 text-blue-800 font-semibold px-4 py-1.5 rounded-full text-sm border border-blue-200">
+          <div className="inline-block bg-red-100 text-red-800 font-semibold px-4 py-1.5 rounded-full text-sm border border-red-200">
              ✨ AI as your Health Partner
           </div>
           <h1 className="text-5xl md:text-6xl font-extrabold text-gray-900 leading-tight">
-            From Data to <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-500">Prevention.</span>
+            From Data to <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-rose-500">Prevention.</span>
           </h1>
           <p className="text-xl text-gray-600 leading-relaxed max-w-lg">
             Actively manage non-communicable diseases through predictive AI. We are transforming healthcare by catching complications before they happen.
@@ -62,15 +39,15 @@ const Landing = () => {
 
         {/* Hero Visuals (Abstract UI representation) */}
         <div className="relative animate-pulse-slow">
-           <div className="absolute inset-0 bg-gradient-to-tr from-blue-300 to-indigo-200 rounded-full blur-3xl opacity-30"></div>
+           <div className="absolute inset-0 bg-gradient-to-tr from-red-300 to-rose-200 rounded-full blur-3xl opacity-30"></div>
            <div className="relative bg-white/80 backdrop-blur-xl border border-white p-6 rounded-3xl shadow-2xl">
               <div className="space-y-4">
                  {/* Visual Mockup Items */}
-                 <div className="flex items-center gap-4 bg-blue-50 p-4 rounded-2xl">
-                    <div className="w-12 h-12 bg-blue-200 rounded-full flex items-center justify-center text-blue-700"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+                 <div className="flex items-center gap-4 bg-red-50 p-4 rounded-2xl">
+                    <div className="w-12 h-12 bg-red-200 rounded-full flex items-center justify-center text-red-700"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
                     <div>
-                      <p className="font-bold text-blue-900">Active Monitoring</p>
-                      <p className="text-sm text-blue-600">Track complications</p>
+                      <p className="font-bold text-red-900">Active Monitoring</p>
+                      <p className="text-sm text-red-600">Track complications</p>
                     </div>
                  </div>
                  <div className="flex items-center gap-4 bg-purple-50 p-4 rounded-2xl transform translate-x-4">
@@ -126,12 +103,12 @@ const Landing = () => {
             </div>
 
              {/* Tertiary */}
-             <div className="bg-blue-600 text-white p-8 rounded-3xl hover:-translate-y-2 transition-transform duration-300 shadow-xl">
+             <div className="bg-red-600 text-white p-8 rounded-3xl hover:-translate-y-2 transition-transform duration-300 shadow-xl">
               <div className="w-14 h-14 bg-white/20 text-white rounded-2xl flex items-center justify-center mb-6">
                 <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
               </div>
               <h3 className="text-2xl font-bold mb-4">Layer 3: Active Disease Monitoring</h3>
-              <p className="text-blue-50 leading-relaxed mb-6">
+              <p className="text-red-50 leading-relaxed mb-6">
                 For patients with existing chronic conditions. We log your daily metrics—from glucose to unexplained allergic reactions—and our AI finds the invisible trends before a crisis hits.
               </p>
             </div>
@@ -144,7 +121,7 @@ const Landing = () => {
          <h2 className="text-3xl font-bold text-white mb-6">Ready to take control of your health data?</h2>
          <button 
            onClick={() => navigate('/signup')}
-           className="bg-blue-500 hover:bg-blue-400 text-gray-900 px-8 py-4 rounded-xl font-bold text-lg transition-colors"
+           className="bg-red-500 hover:bg-red-400 text-gray-900 px-8 py-4 rounded-xl font-bold text-lg transition-colors"
          >
            Create Your VYTAL Account
          </button>

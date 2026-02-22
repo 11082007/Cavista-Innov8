@@ -123,8 +123,8 @@ const Dashboard = () => {
       <nav className="bg-white border-b border-gray-200 sticky top-0 z-10">
          <div className="max-w-5xl mx-auto px-4 py-4 flex justify-between items-center">
             <div className="flex items-center gap-2">
-               <div className="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center text-white font-bold">V</div>
-               <span className="text-xl font-bold text-blue-900">VYTAL Patient</span>
+               <div className="w-8 h-8 bg-red-500 rounded-lg flex items-center justify-center text-white font-bold">V</div>
+               <span className="text-xl font-bold text-red-900">VYTAL Patient</span>
             </div>
             <div className="flex items-center gap-4">
                <span className="text-sm font-medium text-gray-500 hidden sm:block">Welcome, {user.name || "User"}</span>
@@ -153,7 +153,7 @@ const Dashboard = () => {
            </button>
            <button 
              onClick={() => setActiveTab('tertiary')}
-             className={`flex-1 min-w-[150px] py-3 px-4 rounded-xl font-bold text-sm transition-all flex items-center justify-center gap-2 ${activeTab === 'tertiary' ? 'bg-blue-100 text-blue-800' : 'text-gray-500 hover:bg-gray-50'}`}
+             className={`flex-1 min-w-[150px] py-3 px-4 rounded-xl font-bold text-sm transition-all flex items-center justify-center gap-2 ${activeTab === 'tertiary' ? 'bg-red-100 text-red-800' : 'text-gray-500 hover:bg-gray-50'}`}
            >
               3. Active Tracking
            </button>
@@ -177,13 +177,13 @@ const Dashboard = () => {
                   <div className="flex gap-2">
                     <button
                       onClick={() => setLoggingType("glucose")}
-                      className={`flex-1 py-3 rounded-xl font-bold text-sm transition-all ${loggingType === "glucose" ? "bg-blue-600 text-white shadow-md" : "bg-white text-gray-600 border border-gray-200"}`}
+                      className={`flex-1 py-3 rounded-xl font-bold text-sm transition-all ${loggingType === "glucose" ? "bg-red-600 text-white shadow-md" : "bg-white text-gray-600 border border-gray-200"}`}
                     >
                       🩸 Log Glucose
                     </button>
                     <button
                       onClick={() => setLoggingType("bp")}
-                      className={`flex-1 py-3 rounded-xl font-bold text-sm transition-all ${loggingType === "bp" ? "bg-blue-600 text-white shadow-md" : "bg-white text-gray-600 border border-gray-200"}`}
+                      className={`flex-1 py-3 rounded-xl font-bold text-sm transition-all ${loggingType === "bp" ? "bg-red-600 text-white shadow-md" : "bg-white text-gray-600 border border-gray-200"}`}
                     >
                       ❤️ Log Blood Pressure
                     </button>
@@ -201,12 +201,12 @@ const Dashboard = () => {
                             <span className="font-bold text-gray-700 text-sm whitespace-nowrap mr-4">{r.date}</span>
                             <div className="flex gap-4">
                                 {r.glucose && (
-                                  <span className={`font-semibold text-sm ${r.glucose > 180 ? "text-red-600 font-bold" : r.glucose > 140 ? "text-orange-600" : "text-indigo-600"}`}>
+                                  <span className={`font-semibold text-sm ${r.glucose > 180 ? "text-red-600 font-bold" : r.glucose > 140 ? "text-orange-600" : "text-rose-600"}`}>
                                     Glucose: {r.glucose}
                                   </span>
                                 )}
                                 {r.systolic && (
-                                  <span className={`font-semibold text-sm ${r.systolic > 140 ? "text-red-600 font-bold" : "text-indigo-600"}`}>
+                                  <span className={`font-semibold text-sm ${r.systolic > 140 ? "text-red-600 font-bold" : "text-rose-600"}`}>
                                     BP: {r.systolic}/{r.diastolic}
                                   </span>
                                 )}

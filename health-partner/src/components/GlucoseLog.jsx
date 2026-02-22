@@ -32,7 +32,7 @@
 //               type="number"
 //               value={glucose}
 //               onChange={(e) => setGlucose(e.target.value)}
-//               className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
+//               className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-red-500"
 //               placeholder="120"
 //               required
 //             />
@@ -42,7 +42,7 @@
 //             <select
 //               value={time}
 //               onChange={(e) => setTime(e.target.value)}
-//               className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
+//               className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-red-500"
 //             >
 //               <option value="fasting">Fasting</option>
 //               <option value="before-meal">Before Meal</option>
@@ -53,7 +53,7 @@
 //         </div>
 //         <button
 //           type="submit"
-//           className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors"
+//           className="w-full bg-red-600 text-white py-3 rounded-lg hover:bg-red-700 transition-colors"
 //         >
 //           Save Reading
 //         </button>
@@ -102,7 +102,7 @@ const GlucoseLog = ({ onAdd }) => {
               type="number"
               value={glucose}
               onChange={(e) => setGlucose(e.target.value)}
-              className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-red-500"
               placeholder="120"
               required
             />
@@ -112,7 +112,7 @@ const GlucoseLog = ({ onAdd }) => {
             <select
               value={time}
               onChange={(e) => setTime(e.target.value)}
-              className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-red-500"
             >
               <option value="fasting">Fasting</option>
               <option value="before-meal">Before Meal</option>
@@ -123,7 +123,7 @@ const GlucoseLog = ({ onAdd }) => {
         </div>
         <button
           type="submit"
-          className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors"
+          className="w-full bg-red-600 text-white py-3 rounded-lg hover:bg-red-700 transition-colors"
         >
           Save Reading
         </button>

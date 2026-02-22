@@ -99,7 +99,7 @@ const AdminDashboard = () => {
       {/* Admin Navbar */}
       <nav className="bg-gray-900 text-white px-6 py-4 flex justify-between items-center sticky top-0 z-50 shadow-md">
          <div className="flex items-center gap-4">
-            <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center font-bold text-xl">V</div>
+            <div className="w-10 h-10 bg-red-600 rounded-lg flex items-center justify-center font-bold text-xl">V</div>
             <div>
                <h1 className="font-bold text-lg leading-tight">VYTAL Admin Center</h1>
                <p className="text-gray-400 text-xs">Resource Management</p>

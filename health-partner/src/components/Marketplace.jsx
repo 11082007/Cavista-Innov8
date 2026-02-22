@@ -91,9 +91,9 @@ const Marketplace = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 pb-12">
-      <div className="bg-blue-900 pt-16 pb-24 px-4 text-center">
+      <div className="bg-red-900 pt-16 pb-24 px-4 text-center">
          <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-4">Hospital Resource Hub</h1>
-         <p className="text-blue-100 text-lg max-w-2xl mx-auto">
+         <p className="text-red-100 text-lg max-w-2xl mx-auto">
            Real-time visibility into emergency resources. Don't waste critical time driving to a hospital without the supplies you need.
          </p>
       </div>
@@ -110,13 +110,13 @@ const Marketplace = () => {
                  placeholder="Search by hospital name or LGA..." 
                  value={searchQuery}
                  onChange={(e) => setSearchQuery(e.target.value)}
-                 className="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all"
+                 className="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-red-500 outline-none transition-all"
                />
             </div>
             <select 
                value={filter}
                onChange={(e) => setFilter(e.target.value)}
-               className="md:w-64 px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all font-medium text-gray-700"
+               className="md:w-64 px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-red-500 outline-none transition-all font-medium text-gray-700"
             >
                <option value="all">All Live Resources</option>
                <option value="blood">O- Blood Available</option>
@@ -147,7 +147,7 @@ const Marketplace = () => {
                   {/* Insurance/Aid Badges */}
                   <div className="flex flex-wrap gap-2 mb-4">
                      {hospital.insurance.map((ins, idx) => (
-                       <span key={idx} className="bg-indigo-50 text-indigo-700 border border-indigo-100 text-[10px] font-bold px-2 py-0.5 rounded flex items-center gap-1">
+                       <span key={idx} className="bg-rose-50 text-rose-700 border border-rose-100 text-[10px] font-bold px-2 py-0.5 rounded flex items-center gap-1">
                           <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>
                           {ins}
                        </span>
@@ -171,7 +171,7 @@ const Marketplace = () => {
                   <div className="pt-4 border-t border-gray-100 mt-auto space-y-3">
                      <div className="flex justify-between items-center bg-gray-50 p-3 rounded-xl">
                         <span className="text-xs font-bold text-gray-500">Ambulance Status</span>
-                        <span className={`text-xs font-bold ${hospital.ambulance.includes('Available') ? 'text-blue-600' : 'text-red-500'}`}>
+                        <span className={`text-xs font-bold ${hospital.ambulance.includes('Available') ? 'text-red-600' : 'text-red-500'}`}>
                           {hospital.ambulance}
                         </span>
                      </div>

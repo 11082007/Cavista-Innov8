@@ -6,7 +6,7 @@ const EmergencyFilters = ({ filters, setFilters, lgas = [] }) => {
   const filterOptions = [
     { id: "all", label: "All Resources", icon: "🏥", color: "blue" },
     { id: "blood", label: "Blood Bank", icon: "🩸", color: "red" },
-    { id: "icu", label: "ICU Beds", icon: "🏥", color: "emerald" },
+    { id: "icu", label: "ICU Beds", icon: "🏥", color: "indigo" },
     { id: "antivenom", label: "Anti-venom", icon: "🐍", color: "purple" },
   ];
 
@@ -32,8 +32,8 @@ const EmergencyFilters = ({ filters, setFilters, lgas = [] }) => {
                       ? "bg-blue-600 text-white shadow-md"
                       : option.color === "red"
                         ? "bg-red-500 text-white shadow-md"
-                        : option.color === "emerald"
-                          ? "bg-emerald-500 text-white shadow-md"
+                        : option.color === "indigo"
+                          ? "bg-indigo-500 text-white shadow-md"
                           : "bg-purple-500 text-white shadow-md"
                     : "bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-200"
                 }`}
@@ -53,7 +53,7 @@ const EmergencyFilters = ({ filters, setFilters, lgas = [] }) => {
           <select
             value={filters?.lga || "all"}
             onChange={(e) => setFilters({ ...filters, lga: e.target.value })}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 bg-white"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white"
           >
             <option value="all">All LGAs</option>
             {safeLgas.map((lga) => (
@@ -80,7 +80,7 @@ const EmergencyFilters = ({ filters, setFilters, lgas = [] }) => {
               onChange={(e) =>
                 setFilters({ ...filters, search: e.target.value })
               }
-              className="w-full px-4 py-2 pl-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500"
+              className="w-full px-4 py-2 pl-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             />
             <span className="absolute left-3 top-2.5 text-gray-400">🔍</span>
           </div>

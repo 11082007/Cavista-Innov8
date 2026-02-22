@@ -66,7 +66,7 @@ const AIExplanationPanel = ({ riskData }) => {
             <span className={`p-2 rounded-full ${isHighRisk ? 'bg-purple-200' : isMediumRisk ? 'bg-orange-200' : 'bg-purple-200'}`}>
               <Icon />
             </span>
-            <span>VYTAL AI Medical Analyst</span>
+            <span>VYVON AI Medical Analyst</span>
           </div>
           
           <div className="pl-12">

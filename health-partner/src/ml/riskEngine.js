@@ -1,5 +1,5 @@
 /**
- * Risk Scoring Engine for VYTAL Health
+ * Risk Scoring Engine for VYVON Health
  * Evaluates patient logs (Glucose, Blood Pressure) and assigns risk scores.
  */
 

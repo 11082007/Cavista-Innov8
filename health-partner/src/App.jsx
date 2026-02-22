@@ -8,14 +8,14 @@ import Marketplace from "./components/Marketplace";
 import AdminDashboard from "./components/AdminDashboard";
 import Navbar from "./components/Navbar";
 import OfflineBanner from "./components/OfflineBanner";
-import VytalAIChatbot from "./components/AIChatbot";
+import VyvonAIChatbot from "./components/AIChatbot";
 
 function App() {
   const [user, setUser] = useState(null);
   const [isOnline, setIsOnline] = useState(navigator.onLine);
 
   useEffect(() => {
-    const saved = localStorage.getItem("vytal-user");
+    const saved = localStorage.getItem("vyvon-user");
     if (saved) {
       setUser(JSON.parse(saved));
     }
@@ -34,7 +34,7 @@ function App() {
   }, []);
 
   const handleLogout = () => {
-    localStorage.removeItem("vytal-user");
+    localStorage.removeItem("vyvon-user");
     setUser(null);
   };
 
@@ -47,7 +47,7 @@ function App() {
       <Navbar user={user} onLogout={handleLogout} />
 
       {/* 24/7 AI Chatbot for authenticated users */}
-      {user && <VytalAIChatbot />}
+      {user && <VyvonAIChatbot />}
 
       {/* Main Content Area with padding for fixed Navbar */}
       <div className="pt-20">

@@ -12,7 +12,7 @@ const Navbar = ({ user, onLogout }) => {
           <div className="w-12 h-12 bg-gradient-to-tr from-purple-600 to-teal-400 rounded-xl shadow-lg flex items-center justify-center transform group-hover:scale-105 transition-all">
             <span className="text-white font-black text-3xl">V</span>
           </div>
-          <span className="text-2xl font-extrabold text-purple-900 tracking-tight group-hover:text-purple-700 transition-colors">VYTAL</span>
+          <span className="text-2xl font-extrabold text-purple-900 tracking-tight group-hover:text-purple-700 transition-colors">VYVON</span>
         </Link>
         
         <div className="flex items-center gap-6">

@@ -7,10 +7,10 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: "autoUpdate",
-      includeAssets: ["icon-192.png", "icon-512.png"],
+      includeAssets: ["vyvon.svg"],
       manifest: {
-        name: "VYTAL Health",
-        short_name: "VYTAL",
+        name: "VYVON Health",
+        short_name: "VYVON",
         description: "Your AI Health Partner",
         theme_color: "#9333ea",
         background_color: "#ffffff",

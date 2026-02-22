@@ -70,12 +70,12 @@ const HealthHub = ({ userId, phone }) => {
   };
 
   const testWhatsApp = () => {
-    vytalHub.whatsapp.sendMessage(phone, "Test message from VYTAL");
+    vytalHub.whatsapp.sendMessage(phone, "Test message from VYVON");
   };
 
   return (
     <div className="p-6 max-w-4xl mx-auto">
-      <h1 className="text-3xl font-bold mb-6">🩺 VYTAL Health Hub</h1>
+      <h1 className="text-3xl font-bold mb-6">🩺 VYVON Health Hub</h1>
 
       <div className="grid md:grid-cols-2 gap-6">
         {/* BP Logger */}

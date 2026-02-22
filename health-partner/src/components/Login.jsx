@@ -10,7 +10,7 @@ const Login = ({ setUser }) => {
     e.preventDefault();
     // Simple login - in real app, validate with backend
     const userData = { email, name: email.split("@")[0] };
-    localStorage.setItem("vytal-user", JSON.stringify(userData));
+    localStorage.setItem("vyvon-user", JSON.stringify(userData));
     setUser(userData);
     navigate("/");
   };
@@ -18,7 +18,7 @@ const Login = ({ setUser }) => {
   return (
     <div className="min-h-screen flex items-center justify-center p-4">
       <div className="max-w-md w-full bg-white rounded-2xl shadow-xl p-8">
-        <h1 className="text-3xl font-bold text-center mb-2">VYTAL</h1>
+        <h1 className="text-3xl font-bold text-center mb-2">VYVON</h1>
         <p className="text-gray-600 text-center mb-8">Your AI Health Partner</p>
 
         <form onSubmit={handleSubmit} className="space-y-6">

@@ -59,17 +59,17 @@ const Marketplace = () => {
 
   useEffect(() => {
     // Load from Local Storage (Dynamic Admin Source) or Seed if empty
-    const saved = localStorage.getItem('vytal-hospitals');
+    const saved = localStorage.getItem('vyvon-hospitals');
     if (saved) {
       setHospitals(JSON.parse(saved));
     } else {
-      localStorage.setItem('vytal-hospitals', JSON.stringify(SEED_HOSPITALS));
+      localStorage.setItem('vyvon-hospitals', JSON.stringify(SEED_HOSPITALS));
       setHospitals(SEED_HOSPITALS);
     }
 
     // Listener for cross-tab updates (e.g. Admin changes a resource)
     const handleStorageChange = (e) => {
-      if (e.key === 'vytal-hospitals' && e.newValue) {
+      if (e.key === 'vyvon-hospitals' && e.newValue) {
         setHospitals(JSON.parse(e.newValue));
       }
     };

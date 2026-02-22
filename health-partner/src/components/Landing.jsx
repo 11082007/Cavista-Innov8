@@ -26,7 +26,7 @@ const Landing = () => {
                onClick={() => navigate('/signup')}
                className="bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg flex items-center justify-center gap-2 transition-all"
              >
-               Join VYTAL Now
+               Join VYVON Now
                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
              </button>
              <button 
@@ -109,7 +109,7 @@ const Landing = () => {
            onClick={() => navigate('/signup')}
            className="bg-purple-500 hover:bg-purple-400 text-gray-900 px-8 py-4 rounded-xl font-bold text-lg transition-colors"
          >
-           Create Your VYTAL Account
+           Create Your VYVON Account
          </button>
       </footer>
     </div>

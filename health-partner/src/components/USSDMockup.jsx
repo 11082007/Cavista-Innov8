@@ -32,7 +32,7 @@ const USSDMockup = () => {
       case 1:
         return (
           <div className="text-left font-mono text-[11px] leading-snug text-gray-800">
-            <p className="font-bold border-b border-gray-300 pb-1 mb-1">Welcome to VYTAL</p>
+            <p className="font-bold border-b border-gray-300 pb-1 mb-1">Welcome to VYVON</p>
             <p>1. Emergency Hub</p>
             <p>2. Log Vitals (BP/Sugar)</p>
             <p>3. Ask Healthcare Agent</p>
@@ -113,7 +113,7 @@ const USSDMockup = () => {
       </div>
       
       <div className="mt-4 text-center">
-        <span className="text-gray-500 font-bold tracking-widest uppercase text-[10px]">Vytal Mobile</span>
+        <span className="text-gray-500 font-bold tracking-widest uppercase text-[10px]">Vyvon Mobile</span>
       </div>
     </div>
   );

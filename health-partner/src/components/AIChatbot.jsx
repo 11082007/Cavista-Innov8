@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const VytalAIChatbot = ({ riskScore }) => {
+const VyvonAIChatbot = ({ riskScore }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
-    { sender: 'ai', text: "Hello! I'm Vytal AI, your 24/7 Intelligent Health Assistant. How can I help you today?" }
+    { sender: 'ai', text: "Hello! I'm Vyvon AI, your 24/7 Intelligent Health Assistant. How can I help you today?" }
   ]);
   const [input, setInput] = useState('');
   const messagesEndRef = useRef(null);
@@ -61,7 +61,7 @@ const VytalAIChatbot = ({ riskScore }) => {
                 V
               </div>
               <div>
-                <h3 className="text-white font-bold">VYTAL AI</h3>
+                <h3 className="text-white font-bold">VYVON AI</h3>
                 <p className="text-purple-200 text-xs text-left">24/7 Intelligent Assistant</p>
               </div>
             </div>
@@ -92,7 +92,7 @@ const VytalAIChatbot = ({ riskScore }) => {
               type="text" 
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder="Ask VYTAL AI..." 
+              placeholder="Ask VYVON AI..." 
               className="flex-1 bg-gray-50 border border-gray-200 rounded-xl px-4 py-2 text-sm focus:outline-none focus:border-teal-400 focus:ring-1 focus:ring-teal-400 transition-all"
             />
             <button 
@@ -121,4 +121,4 @@ const VytalAIChatbot = ({ riskScore }) => {
   );
 };
 
-export default VytalAIChatbot;
+export default VyvonAIChatbot;

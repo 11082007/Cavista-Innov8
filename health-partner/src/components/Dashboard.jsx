@@ -223,7 +223,7 @@ const Dashboard = () => {
   const [activeTab, setActiveTab] = useState("tertiary");
   
   // Get user condition from local storage
-  const user = JSON.parse(localStorage.getItem("vytal-user") || "{}");
+  const user = JSON.parse(localStorage.getItem("vyvon-user") || "{}");
   const condition = user.condition || "general";
   
   // Conditionally set loggingType
@@ -237,7 +237,7 @@ const Dashboard = () => {
   });
 
   useEffect(() => {
-    const saved = localStorage.getItem("vytal-readings");
+    const saved = localStorage.getItem("vyvon-readings");
     if (saved) {
       setReadings(JSON.parse(saved));
     } else {
@@ -271,11 +271,11 @@ const Dashboard = () => {
     }
     const finalReadings = updated.slice(-10); // keep last 10
     setReadings(finalReadings);
-    localStorage.setItem("vytal-readings", JSON.stringify(finalReadings));
+    localStorage.setItem("vyvon-readings", JSON.stringify(finalReadings));
   };
 
   const handleLogout = () => {
-    localStorage.removeItem("vytal-user");
+    localStorage.removeItem("vyvon-user");
     window.location.href = "/login";
   };
 

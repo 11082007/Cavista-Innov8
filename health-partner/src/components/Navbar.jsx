@@ -21,7 +21,7 @@ const Navbar = ({ user, onLogout }) => {
               <Link to="/" className="font-semibold text-gray-700 hover:text-purple-600 transition">Dashboard</Link>
               {/* Updated strictly to match Slide 7 terminology */}
               <Link to="/marketplace" className="font-semibold text-gray-700 hover:text-purple-600 transition">Critical Resource Hub</Link>
-              <Link to="/admin" className="font-semibold text-gray-700 hover:text-purple-600 transition">Admin Portal</Link>
+              <Link to="/admin" className="font-semibold text-gray-700 hover:text-purple-600 transition">Hospital Admin Portal</Link>
               <button 
                 onClick={() => {
                   onLogout();

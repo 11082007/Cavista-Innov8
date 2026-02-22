@@ -83,9 +83,9 @@ const Dashboard = () => {
       setReadings(JSON.parse(saved));
     } else {
       const demo = [
-        { date: "Mon", glucose: 178, systolic: 145, diastolic: 92 },
-        { date: "Tue", glucose: 182, systolic: 148, diastolic: 94 },
-        { date: "Wed", glucose: 175, systolic: 152, diastolic: 96 },
+        { date: "Mon", glucose: 95, systolic: 115, diastolic: 75 },
+        { date: "Tue", glucose: 98, systolic: 118, diastolic: 78 },
+        { date: "Wed", glucose: 92, systolic: 112, diastolic: 72 },
       ];
       setReadings(demo);
     }

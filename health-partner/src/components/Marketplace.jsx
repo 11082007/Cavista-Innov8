@@ -91,9 +91,9 @@ const Marketplace = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 pb-12">
-      <div className="bg-red-900 pt-16 pb-24 px-4 text-center">
+      <div className="bg-purple-900 pt-16 pb-24 px-4 text-center">
          <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-4">Hospital Resource Hub</h1>
-         <p className="text-red-100 text-lg max-w-2xl mx-auto">
+         <p className="text-purple-100 text-lg max-w-2xl mx-auto">
            Real-time visibility into emergency resources. Don't waste critical time driving to a hospital without the supplies you need.
          </p>
       </div>
@@ -110,13 +110,13 @@ const Marketplace = () => {
                  placeholder="Search by hospital name or LGA..." 
                  value={searchQuery}
                  onChange={(e) => setSearchQuery(e.target.value)}
-                 className="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-red-500 outline-none transition-all"
+                 className="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 outline-none transition-all"
                />
             </div>
             <select 
                value={filter}
                onChange={(e) => setFilter(e.target.value)}
-               className="md:w-64 px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-red-500 outline-none transition-all font-medium text-gray-700"
+               className="md:w-64 px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 outline-none transition-all font-medium text-gray-700"
             >
                <option value="all">All Live Resources</option>
                <option value="blood">O- Blood Available</option>
@@ -147,7 +147,7 @@ const Marketplace = () => {
                   {/* Insurance/Aid Badges */}
                   <div className="flex flex-wrap gap-2 mb-4">
                      {hospital.insurance.map((ins, idx) => (
-                       <span key={idx} className="bg-rose-50 text-rose-700 border border-rose-100 text-[10px] font-bold px-2 py-0.5 rounded flex items-center gap-1">
+                       <span key={idx} className="bg-teal-50 text-rose-700 border border-rose-100 text-[10px] font-bold px-2 py-0.5 rounded flex items-center gap-1">
                           <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>
                           {ins}
                        </span>
@@ -159,9 +159,9 @@ const Marketplace = () => {
                      <p className="text-xs font-bold text-gray-400 uppercase tracking-wider">Live Inventory</p>
                      <div className="grid grid-cols-2 gap-2">
                         {hospital.resources.map((res, idx) => (
-                           <div key={idx} className={`flex items-center justify-between p-2 rounded-lg border ${res.available ? 'bg-green-50 border-green-100' : 'bg-red-50 border-red-100'}`}>
-                             <span className={`text-xs font-bold ${res.available ? 'text-green-800' : 'text-red-800'}`}>{res.name}</span>
-                             <span className={`text-xs font-black ${res.available ? 'text-green-600' : 'text-red-600'}`}>{res.available ? res.count : '0'}</span>
+                           <div key={idx} className={`flex items-center justify-between p-2 rounded-lg border ${res.available ? 'bg-green-50 border-green-100' : 'bg-purple-50 border-purple-100'}`}>
+                             <span className={`text-xs font-bold ${res.available ? 'text-green-800' : 'text-purple-800'}`}>{res.name}</span>
+                             <span className={`text-xs font-black ${res.available ? 'text-green-600' : 'text-purple-600'}`}>{res.available ? res.count : '0'}</span>
                            </div>
                         ))}
                      </div>
@@ -171,7 +171,7 @@ const Marketplace = () => {
                   <div className="pt-4 border-t border-gray-100 mt-auto space-y-3">
                      <div className="flex justify-between items-center bg-gray-50 p-3 rounded-xl">
                         <span className="text-xs font-bold text-gray-500">Ambulance Status</span>
-                        <span className={`text-xs font-bold ${hospital.ambulance.includes('Available') ? 'text-red-600' : 'text-red-500'}`}>
+                        <span className={`text-xs font-bold ${hospital.ambulance.includes('Available') ? 'text-purple-600' : 'text-purple-500'}`}>
                           {hospital.ambulance}
                         </span>
                      </div>
@@ -181,7 +181,7 @@ const Marketplace = () => {
                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                           Call
                         </button>
-                        <button className={`flex items-center justify-center gap-2 py-2.5 rounded-xl font-bold text-sm transition-colors ${hospital.ambulance.includes('Available') ? 'bg-red-500 hover:bg-red-600 text-white shadow-md' : 'bg-gray-200 text-gray-400 cursor-not-allowed'}`}>
+                        <button className={`flex items-center justify-center gap-2 py-2.5 rounded-xl font-bold text-sm transition-colors ${hospital.ambulance.includes('Available') ? 'bg-purple-500 hover:bg-purple-600 text-white shadow-md' : 'bg-gray-200 text-gray-400 cursor-not-allowed'}`}>
                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><path d="M10 10v6"/><path d="M7 13h6"/></svg>
                           Dispatch
                         </button>

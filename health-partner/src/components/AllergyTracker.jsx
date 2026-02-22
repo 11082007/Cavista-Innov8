@@ -35,7 +35,7 @@ const AllergyTracker = () => {
       </div>
 
       {/* AI Insight Panel */}
-      <div className="bg-gradient-to-r from-rose-50 to-pink-50 p-4 rounded-xl border border-rose-100 mb-6">
+      <div className="bg-gradient-to-r from-teal-50 to-pink-50 p-4 rounded-xl border border-rose-100 mb-6">
          <div className="flex gap-3">
            <span className="mt-1 text-rose-600"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg></span>
            <div>
@@ -54,7 +54,7 @@ const AllergyTracker = () => {
             <label className="block text-sm font-bold text-gray-700 mb-1">What did you eat?</label>
             <input 
               value={newMeal} onChange={(e) => setNewMeal(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-rose-500 outline-none" 
+              className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-teal-400 outline-none" 
               placeholder="e.g. Seafood Pasta" required 
             />
           </div>
@@ -62,7 +62,7 @@ const AllergyTracker = () => {
             <label className="block text-sm font-bold text-gray-700 mb-1">Specific Reaction</label>
             <input 
               value={newReaction} onChange={(e) => setNewReaction(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-rose-500 outline-none" 
+              className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-teal-400 outline-none" 
               placeholder="e.g. Urticaria, Swollen palms" required 
             />
           </div>
@@ -70,7 +70,7 @@ const AllergyTracker = () => {
             <label className="block text-sm font-bold text-gray-700 mb-1">Severity</label>
             <select 
                value={severity} onChange={(e) => setSeverity(e.target.value)}
-               className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-rose-500 outline-none bg-white"
+               className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-teal-400 outline-none bg-white"
             >
               <option value="Low">Low (Mild discomfort)</option>
               <option value="Medium">Medium (Visible swelling/rash)</option>
@@ -92,7 +92,7 @@ const AllergyTracker = () => {
                <p className="text-sm text-gray-500">{log.date} • Trigger: {log.trigger}</p>
              </div>
              <span className={`px-3 py-1 rounded-full text-xs font-bold ${
-               log.severity === 'High' ? 'bg-red-100 text-red-700' :
+               log.severity === 'High' ? 'bg-purple-100 text-purple-700' :
                log.severity === 'Medium' ? 'bg-orange-100 text-orange-700' :
                'bg-yellow-100 text-yellow-700'
              }`}>

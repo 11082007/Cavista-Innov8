@@ -52,7 +52,7 @@ const Login = ({ setUser }) => {
 
           <button
             type="submit"
-            className="w-full py-3 bg-red-600 text-white rounded-lg hover:bg-red-700"
+            className="w-full py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700"
           >
             Sign In
           </button>
@@ -62,7 +62,7 @@ const Login = ({ setUser }) => {
           Don't have an account?{" "}
           <button
             onClick={() => navigate("/signup")}
-            className="text-red-600 hover:text-red-700 font-medium"
+            className="text-purple-600 hover:text-purple-700 font-medium"
           >
             Sign up
           </button>

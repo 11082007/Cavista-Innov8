@@ -99,7 +99,7 @@ const AdminDashboard = () => {
       {/* Admin Navbar */}
       <nav className="bg-gray-900 text-white px-6 py-4 flex justify-between items-center sticky top-0 z-50 shadow-md">
          <div className="flex items-center gap-4">
-            <div className="w-10 h-10 bg-red-600 rounded-lg flex items-center justify-center font-bold text-xl">V</div>
+            <div className="w-10 h-10 bg-purple-600 rounded-lg flex items-center justify-center font-bold text-xl">V</div>
             <div>
                <h1 className="font-bold text-lg leading-tight">VYTAL Admin Center</h1>
                <p className="text-gray-400 text-xs">Resource Management</p>
@@ -108,8 +108,8 @@ const AdminDashboard = () => {
          
          <div className="flex items-center gap-6">
             {/* The Masterpiece: Network Status Indicator */}
-            <div className={`flex items-center gap-2 px-4 py-2 rounded-full border ${isOnline ? 'bg-green-900/40 border-green-700 text-green-400' : 'bg-red-900/40 border-red-700 text-red-400 animate-pulse'}`}>
-               <span className={`w-2 h-2 rounded-full ${isOnline ? 'bg-green-500' : 'bg-red-500'}`}></span>
+            <div className={`flex items-center gap-2 px-4 py-2 rounded-full border ${isOnline ? 'bg-green-900/40 border-green-700 text-green-400' : 'bg-purple-900/40 border-purple-700 text-purple-400 animate-pulse'}`}>
+               <span className={`w-2 h-2 rounded-full ${isOnline ? 'bg-green-500' : 'bg-purple-500'}`}></span>
                <span className="font-bold text-sm tracking-wide">
                  {isOnline ? 'SYSTEM ONLINE' : 'OFFLINE MODE'}
                </span>
@@ -131,12 +131,12 @@ const AdminDashboard = () => {
       <div className="max-w-7xl mx-auto px-6 mt-8">
         
         {!isOnline && (
-           <div className="bg-red-50 border-l-4 border-red-500 p-4 mb-8 rounded-r-lg shadow-sm">
+           <div className="bg-purple-50 border-l-4 border-purple-500 p-4 mb-8 rounded-r-lg shadow-sm">
              <div className="flex gap-3">
-               <svg className="text-red-500 w-6 h-6 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+               <svg className="text-purple-500 w-6 h-6 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
                <div>
-                  <h3 className="font-bold text-red-900">Connection Lost: Offline Mode Active</h3>
-                  <p className="text-red-800 text-sm mt-1">
+                  <h3 className="font-bold text-purple-900">Connection Lost: Offline Mode Active</h3>
+                  <p className="text-purple-800 text-sm mt-1">
                     You can continue updating hospital resources. All changes are being saved locally and will automatically sync to the Marketplace as soon as your internet connection is restored.
                   </p>
                </div>
@@ -165,11 +165,11 @@ const AdminDashboard = () => {
                           <div className="flex items-center gap-3">
                              <button 
                                onClick={() => updateResource(hospital.id, res.name, Math.max(0, res.count - 1))}
-                               className="w-8 h-8 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-600 hover:bg-red-50 hover:text-red-600 hover:border-red-200 transition-colors font-bold"
+                               className="w-8 h-8 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-600 hover:bg-purple-50 hover:text-purple-600 hover:border-purple-200 transition-colors font-bold"
                              >
                                -
                              </button>
-                             <span className={`w-8 text-center font-black ${res.available ? 'text-gray-900' : 'text-red-500'}`}>
+                             <span className={`w-8 text-center font-black ${res.available ? 'text-gray-900' : 'text-purple-500'}`}>
                                {res.count}
                              </span>
                              <button 

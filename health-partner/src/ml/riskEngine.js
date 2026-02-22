@@ -124,8 +124,8 @@ export const calculateRisk = (glucoseLogs = [], bpLogs = []) => {
 
   if (score >= 11) {
     level = "High";
-    color = "bg-red-100 text-red-800 border-red-200";
-    panelColor = "from-orange-100 to-red-100";
+    color = "bg-purple-100 text-purple-800 border-purple-200";
+    panelColor = "from-orange-100 to-purple-100";
     // Construct dynamic AI explanation for High Risk
     explanation = `${trendMessage ? trendMessage + " " : ""}Sustained elevation increases risk of complications. We recommend immediate medical review.`;
   } else if (score >= 6) {

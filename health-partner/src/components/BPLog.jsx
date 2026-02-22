@@ -23,10 +23,10 @@
 //   const getBPStatus = (sys, dia) => {
 //     if (!sys || !dia) return null;
 //     if (sys > 180 || dia > 120)
-//       return { text: "Crisis", color: "text-red-600 font-bold" };
+//       return { text: "Crisis", color: "text-purple-600 font-bold" };
 //     if (sys > 140 || dia > 90)
 //       return { text: "High", color: "text-orange-600" };
-//     if (sys < 90 || dia < 60) return { text: "Low", color: "text-red-600" };
+//     if (sys < 90 || dia < 60) return { text: "Low", color: "text-purple-600" };
 //     return { text: "Normal", color: "text-green-600" };
 //   };
 
@@ -45,7 +45,7 @@
 //               type="number"
 //               value={systolic}
 //               onChange={(e) => setSystolic(e.target.value)}
-//               className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-red-500"
+//               className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-purple-500"
 //               placeholder="120"
 //               required
 //             />
@@ -58,7 +58,7 @@
 //               type="number"
 //               value={diastolic}
 //               onChange={(e) => setDiastolic(e.target.value)}
-//               className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-red-500"
+//               className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-purple-500"
 //               placeholder="80"
 //               required
 //             />
@@ -68,7 +68,7 @@
 //         {/* Live feedback */}
 //         {status && (
 //           <div
-//             className={`p-3 rounded-lg ${status.color.includes("red") ? "bg-red-50" : "bg-green-50"} text-center`}
+//             className={`p-3 rounded-lg ${status.color.includes("red") ? "bg-purple-50" : "bg-green-50"} text-center`}
 //           >
 //             <span className={status.color}>{status.text}</span>
 //           </div>
@@ -76,7 +76,7 @@
 
 //         <button
 //           type="submit"
-//           className="w-full bg-red-600 text-white py-3 rounded-lg hover:bg-red-700 transition-colors"
+//           className="w-full bg-purple-600 text-white py-3 rounded-lg hover:bg-purple-700 transition-colors"
 //         >
 //           Save Reading
 //         </button>
@@ -110,10 +110,10 @@ const BPLog = ({ onAdd }) => {
   const getBPStatus = (sys, dia) => {
     if (!sys || !dia) return null;
     if (sys > 180 || dia > 120)
-      return { text: "Crisis", color: "text-red-600 font-bold" };
+      return { text: "Crisis", color: "text-purple-600 font-bold" };
     if (sys > 140 || dia > 90)
       return { text: "High", color: "text-orange-600" };
-    if (sys < 90 || dia < 60) return { text: "Low", color: "text-red-600" };
+    if (sys < 90 || dia < 60) return { text: "Low", color: "text-purple-600" };
     return { text: "Normal", color: "text-green-600" };
   };
 
@@ -132,7 +132,7 @@ const BPLog = ({ onAdd }) => {
               type="number"
               value={systolic}
               onChange={(e) => setSystolic(e.target.value)}
-              className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-red-500"
+              className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-purple-500"
               placeholder="120"
               required
             />
@@ -145,7 +145,7 @@ const BPLog = ({ onAdd }) => {
               type="number"
               value={diastolic}
               onChange={(e) => setDiastolic(e.target.value)}
-              className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-red-500"
+              className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-purple-500"
               placeholder="80"
               required
             />
@@ -154,7 +154,7 @@ const BPLog = ({ onAdd }) => {
 
         {status && (
           <div
-            className={`p-3 rounded-lg ${status.color.includes("red") ? "bg-red-50" : "bg-green-50"} text-center`}
+            className={`p-3 rounded-lg ${status.color.includes("red") ? "bg-purple-50" : "bg-green-50"} text-center`}
           >
             <span className={status.color}>{status.text}</span>
           </div>
@@ -162,7 +162,7 @@ const BPLog = ({ onAdd }) => {
 
         <button
           type="submit"
-          className="w-full bg-red-600 text-white py-3 rounded-lg hover:bg-red-700 transition-colors"
+          className="w-full bg-purple-600 text-white py-3 rounded-lg hover:bg-purple-700 transition-colors"
         >
           Save Reading
         </button>
